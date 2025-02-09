@@ -1,6 +1,6 @@
 [project]
 name = "warriors-leaderboard"
-version = "0.1.8"
+version = "0.1.9"
 description = "Watch ArchiveTeam Warrior leaderboards on the command line"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -9,6 +9,24 @@ dependencies = [
     "requests>=2.32.3",
     "rich>=13.9.4",
 ]
+keywords = ["ArchiveTeam", "Warrior"]
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  {name = "Alan Evans", email = "thealanevans@gmail.com"},
+]
+maintainers = [
+  {name = "Alan Evans", email = "thealanevans@gmail.com"},
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Repository = "https://github.com/westonal/archive-warrior-leaderboard-cli.git"
+Issues = "https://github.com/westonal/archive-warrior-leaderboard-cli/issues"
 
 [build-system]
 requires = ["hatchling"]
