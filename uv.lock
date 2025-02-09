@@ -143,9 +143,9 @@ wheels = [
 ]
 
 [[package]]
-name = "warrior-leaderboard-cli"
-version = "0.1.0"
-source = { virtual = "." }
+name = "warriors"
+version = "0.1.1"
+source = { editable = "." }
 dependencies = [
     { name = "click" },
     { name = "requests" },
@@ -154,7 +154,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "click", specifier = ">=8.1.8" },
+    { name = "click", specifier = ">=8.1.7" },
     { name = "requests", specifier = ">=2.32.3" },
     { name = "rich", specifier = ">=13.9.4" },
 ]
