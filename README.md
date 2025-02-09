@@ -8,7 +8,7 @@ A python CLI tool to list rank of [Archive Warriors](https://wiki.archiveteam.or
 # Install
 
 ```shell
-pip install warriors
+pip install warriors-leaderboard
 ```
 
 # Run
