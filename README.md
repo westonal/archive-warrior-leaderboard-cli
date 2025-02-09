@@ -2,6 +2,9 @@
 
 A python CLI tool to list rank of [Archive Warriors](https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior)
 
+<img width="466" alt="image" src="https://github.com/user-attachments/assets/3f0d6088-4f8e-47f9-9f45-d4b735b69564" />
+
+
 # Install
 
 ```shell
