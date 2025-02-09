@@ -2,20 +2,21 @@
 
 A python CLI tool to list rank of [Archive Warriors](https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior)
 
-# Install and run
-
-1. Clone repo.
-2. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) if you don't have it.
-
-Then run:
+# Install
 
 ```shell
-uv run warrior_rank.py <project> [<user(s)>] [--top count] [--bottom count] [--surround count]
+pip install warriors
+```
+
+# Run
+
+```shell
+warriors <project> [<user(s)>] [--top count] [--bottom count] [--surround count]
 ```
 
 With only a project specified you get the top 10 users:
 ```
-% uv run warrior_rank.py telegram
+% warriors telegram
                    telegram                   
 ┏━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━┓
 ┃ Rank ┃ User        ┃      Bytes ┃    Items ┃
@@ -36,7 +37,7 @@ With only a project specified you get the top 10 users:
 Or you can list a number of users after the project:
 
 ```
-% uv run warrior_rank.py usgovernment kiwi breadbrix
+% warriors usgovernment kiwi breadbrix
               usgovernment               
 ┏━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┓
 ┃ Rank ┃ User      ┃    Bytes ┃   Items ┃
@@ -50,7 +51,7 @@ Or you can list a number of users after the project:
 To include top or bottom ranks, use `-t` or `-b`:
 
 ```
-% uv run warrior_rank.py usgovernment kiwi -t5 -b1
+% warriors usgovernment kiwi -t5 -b1
                   usgovernment                  
 ┏━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━┓
 ┃ Rank ┃ User           ┃     Bytes ┃    Items ┃
@@ -70,7 +71,7 @@ To include top or bottom ranks, use `-t` or `-b`:
 To lookaround the specified user(s), use `-sN`. e.g. to list the 3 above and below `kiwi`:
 
 ```
-% uv run warrior_rank.py usgovernment kiwi -s3    
+% warriors usgovernment kiwi -s3    
                 usgovernment                 
 ┏━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┓
 ┃ Rank ┃ User          ┃    Bytes ┃   Items ┃
@@ -98,3 +99,14 @@ Examples:
 `alan:red` - Highlight user `alan` in red.
 `alan:"red bold"` - Highlight user `alan` in red with bold.
 `alan:"red bold on yellow"` - Highlight user `alan` in red with bold on a yellow background, and apply to whole row.
+
+## Development
+
+1. Clone repo.
+2. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) if you don't have it.
+
+Then run:
+
+```shell
+uv run warrior_rank.py <options as decripted above>
+```
