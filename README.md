@@ -12,9 +12,9 @@ A python CLI tool to list rank of [Archive Warriors](https://wiki.archiveteam.or
 pip install warriors-leaderboard
 ```
 
-## Via brew/pipx
+## Via [brew](https://brew.sh/)/pipx
 
-If you don't have `pipx`:
+If you don't have [`pipx`](https://github.com/pypa/pipx):
 
 ```shell
 brew install pipx
