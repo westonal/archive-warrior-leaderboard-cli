@@ -4,6 +4,8 @@ A python CLI tool to list rank of [Archive Warriors](https://wiki.archiveteam.or
 
 <img width="466" alt="image" src="https://github.com/user-attachments/assets/3f0d6088-4f8e-47f9-9f45-d4b735b69564" />
 
+([Command line for this](#sample-image-command-line))
+
 # Install
 
 ## Via pip
@@ -158,4 +160,12 @@ Then run:
 
 ```shell
 uv run warrior_rank.py <options as decripted above>
+```
+
+## Sample image command line
+
+The sample image was taken while running:
+
+```shell
+warriors telegram red5:"red1 bold on grey19" blue2:"deep_sky_blue1 bold on grey23" --top 10 --bottom 1 --surround 5 --live
 ```
