@@ -22,14 +22,18 @@ from rich.table import Table
 @click.argument("users", nargs=-1)
 @click.option("--top", "-t", default="0", help="Include these many from the top of the ranking")
 @click.option("--bottom", "-b", default="0", help="Include these many from the bottom of the ranking")
-@click.option("--surround", "-s", default="0", help="Include these many around the supplied users")
+@click.option("--surround", "-s", default="0", help="Include these many either side of each supplied user")
 @click.option("include_ranks", "--rank", "-r", multiple=True,
-              help="Include this rank, or inclusive range of ranks using a..b format")
-@click.option("--no-totals", is_flag=True, help="Hide totals row")
+              help="Include this rank, or inclusive range of ranks using a..b format, e.g. -r10..20")
+@click.option("--no-totals", is_flag=True, help="Hide the totals row")
 @click.option("--no-speed", is_flag=True, help="Hide speed column and do not show rank changes")
-@click.option("--live", "-l", is_flag=True, help="Show and update the table in real time")
-@click.option("--poll-time", "-p", default="60", help="Refresh rate in seconds (for watch mode only)")
-@click.option("--json-record-path", "-j", default="", help="Save every response under this path")
+@click.option("--live", "-l", is_flag=True, help="Show and update the table in real time, ctrl+c to exit")
+@click.option("--poll-time", "-p", default="60", help="Live mode: Refresh rate in seconds, default 60")
+@click.option("--average-count", "-c", default="60",
+              help="Live mode: Number of refreshes to calculate speed and compare ranks over, default 60")
+@click.option("--json-record-path", "-j", default="",
+              help="Save every response under this path, latest used when resuming a live view."
+                   "Potentially useful for a future playback mode.")
 def leaderboard(project: str,
                 top,
                 bottom,
@@ -39,8 +43,10 @@ def leaderboard(project: str,
                 no_speed: bool,
                 live: bool,
                 poll_time,
+                average_count,
                 json_record_path,
                 users: Tuple[str]):
+    """Shows leaderboard for given Archive Warrior project, focussing on supplied users or ranks"""
     top = int(top)
     bottom = int(bottom)
     surround = int(surround)
@@ -55,7 +61,7 @@ def leaderboard(project: str,
     users = [user for user, style in users_and_style]
 
     past_ranking = []
-    last_ranking_limit = 60
+    last_ranking_limit = int(average_count)
 
     ranking_fetch = RankingFetch(
         project=project,

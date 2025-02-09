@@ -14,6 +14,36 @@ pip install warriors
 warriors <project> [<user(s)>] [--top count] [--bottom count] [--surround count]
 ```
 
+Full usage available under `--help`:
+
+```
+Usage: warriors [OPTIONS] PROJECT [USERS]...
+
+  Shows leaderboard for given Archive Warrior project, focussing on supplied
+  users or ranks
+
+Options:
+  -t, --top TEXT               Include these many from the top of the ranking
+  -b, --bottom TEXT            Include these many from the bottom of the
+                               ranking
+  -s, --surround TEXT          Include these many either side of each supplied
+                               user
+  -r, --rank TEXT              Include this rank, or inclusive range of ranks
+                               using a..b format, e.g. -r10..20
+  --no-totals                  Hide the totals row
+  --no-speed                   Hide speed column and do not show rank changes
+  -l, --live                   Show and update the table in real time, ctrl+c
+                               to exit
+  -p, --poll-time TEXT         Live mode: Refresh rate in seconds, default 60
+  -c, --average-count TEXT     Live mode: Number of refreshes to calculate
+                               speed and compare ranks over, default 60
+  -j, --json-record-path TEXT  Save every response under this path, latest
+                               used when resuming a live view.Potentially
+                               useful for a future playback mode.
+  --help                       Show this message and exit.
+
+```
+
 With only a project specified you get the top 10 users:
 ```
 % warriors telegram
