@@ -5,6 +5,7 @@ import re
 import time
 from dataclasses import dataclass
 from datetime import datetime, timedelta
+from email.policy import default
 from functools import cached_property
 from pathlib import Path
 from typing import Tuple, Optional
@@ -18,7 +19,7 @@ from rich.table import Table
 
 
 @click.command()
-@click.argument("project")
+@click.argument("project", default="")
 @click.argument("users", nargs=-1)
 @click.option("--top", "-t", default="0", help="Include these many from the top of the ranking")
 @click.option("--bottom", "-b", default="0", help="Include these many from the bottom of the ranking")
@@ -59,6 +60,10 @@ def leaderboard(project: str,
         import importlib.metadata
         print(importlib.metadata.version('warriors-leaderboard'))
         exit(0)
+
+    if not project:
+        rprint("[red]Specify a ArchiveTeam warrior project as the first argument. Try [cyan]--help[/] for more information.")
+        exit(1)
 
     top = int(top)
     bottom = int(bottom)
