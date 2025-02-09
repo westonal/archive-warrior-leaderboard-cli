@@ -7,8 +7,25 @@ A python CLI tool to list rank of [Archive Warriors](https://wiki.archiveteam.or
 
 # Install
 
+## Via pip
+
 ```shell
 pip install warriors-leaderboard
+```
+
+## Via brew/pipx
+
+If you don't have `pipx`:
+
+```shell
+brew install pipx
+pipx ensurepath
+```
+
+Restart terminal, then:
+
+```shell
+pipx install warriors-leaderboard
 ```
 
 # Run
