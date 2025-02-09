@@ -282,7 +282,8 @@ class RankingFetch:
             raise Exception()
         if self.results_save_path:
             self.results_save_path.mkdir(exist_ok=True, parents=True)
-            with open(Path(self.results_save_path, f"{timestamp.isoformat().replace(":", "-")}.json"),
+            file_name_stem = timestamp.isoformat().replace(":", "-")
+            with open(Path(self.results_save_path, f"{file_name_stem}.json"),
                       "w") as f:
                 f.write(result.text)
         project_stats_json = result.json()
