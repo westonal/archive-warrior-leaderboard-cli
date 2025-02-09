@@ -34,6 +34,7 @@ from rich.table import Table
 @click.option("--json-record-path", "-j", default="",
               help="Save every response under this path, latest used when resuming a live view."
                    "Potentially useful for a future playback mode.")
+@click.option("--version", is_flag=True, help="Show version of warriors")
 def leaderboard(project: str,
                 top,
                 bottom,
@@ -45,8 +46,20 @@ def leaderboard(project: str,
                 poll_time,
                 average_count,
                 json_record_path,
+                version: bool,
                 users: Tuple[str]):
-    """Shows leaderboard for given Archive Warrior project, focussing on supplied users or ranks"""
+    """
+    Shows leaderboard for given Archive Warrior project, focussing on supplied users or ranks
+
+    Github: https://github.com/westonal/archive-warrior-leaderboard-cli
+
+    Pypi: https://pypi.org/project/warriors-leaderboard/
+    """
+    if version:
+        import importlib.metadata
+        print(importlib.metadata.version('warriors-leaderboard'))
+        exit(0)
+
     top = int(top)
     bottom = int(bottom)
     surround = int(surround)
